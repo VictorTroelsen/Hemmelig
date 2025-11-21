@@ -49,6 +49,7 @@ app.get('/', (req, res) => {
 <head>
 <meta charset="UTF-8" />
 <title>Affirmation</title>
+<meta name="viewport" content="width=device-width, intitial-scale=1.0" />
 <style>
   body {
     margin: 0;
@@ -62,7 +63,6 @@ app.get('/', (req, res) => {
     background-color: black;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
     font-family: "Poppins", sans-serif;
     position: relative;
   }
@@ -71,6 +71,7 @@ app.get('/', (req, res) => {
     padding: 30px 50px;
     background: rgba(255, 255, 255, 0.15);
     border: 2px solid rgba(255, 255, 255, 0.4);
+    min-height: 100vh;
     border-radius: 20px;
     backdrop-filter: blur(10px);
     text-align: center;
@@ -79,6 +80,7 @@ app.get('/', (req, res) => {
     text-shadow: 0 0 10px #ffdddd, 0 0 20px #ff8888;
     box-shadow: 0 0 10px #ff4444, 0 0 25px #ff0000;
     animation: glow 2s ease-in-out infinite alternate;
+    max-width: 85vw;
   }
 
   @keyframes glow {
@@ -89,6 +91,13 @@ app.get('/', (req, res) => {
       box-shadow: 0 0 20px #ff6666, 0 0 40px #ff3333, 0 0 60px #ff1111;
     }
   }
+  @media (max-width: 480px) {
+  .card {
+    font-size: 1.2rem;
+    padding: 16px 24px;
+    max-width: 90vw;
+    }
+  }
 </style>
 </head>
 
@@ -97,7 +106,7 @@ app.get('/', (req, res) => {
 </body>
 </html>
 `);
-});
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log("Affirmation engine online"));
