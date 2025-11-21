@@ -14,8 +14,9 @@ const affirmations = [
     "Tæver dig i beerpong hvis der er borde."
 ];
 
-app.get('/api/affirmation', (req, res) => {
-    let seen = [];
+app.get('/', (req, res) => {
+    res.redirect('/api/affirmation');
+});
 
     // If cookie exists, use it
     if (req.cookies.seenAffirmations) {
